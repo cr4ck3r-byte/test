@@ -5,11 +5,10 @@
  * @param {Function} fn - The asynchronous function to be wrapped.
  * @returns {Function} A function that takes req, res, and next as arguments and executes the wrapped function.
  */
-const asyncHandler = (fn) => {
-  return (req, res, next) => {
-    // Ejecuta la función del controlador y captura cualquier error
-    Promise.resolve(fn(req, res, next)).catch(next);
-  };
-};
+const asyncHandler = fn => {
+	return (req, res, next) => {
+		Promise.resolve(fn(req, res, next)).catch(next)
+	}
+}
 
-module.exports = { asyncHandler };
+module.exports = { asyncHandler }

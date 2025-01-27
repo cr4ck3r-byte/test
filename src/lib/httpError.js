@@ -5,11 +5,11 @@
  * @param {number} statusCode - The HTTP status code associated with the error.
  */
 class HttpError extends Error {
-  statusCode;
+	statusCode
 
-  constructor(message, statusCode) {
-    super(message);
-    this.statusCode = statusCode;
-  }
+	constructor(message, statusCode) {
+		super(message)
+		this.statusCode = statusCode
+	}
 }
-module.exports = { HttpError };
+module.exports = { HttpError }

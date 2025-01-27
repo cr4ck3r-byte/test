@@ -1,18 +1,19 @@
-const express = require("express");
-require("./database.js");
-const cors = require("cors");
-const morgan = require("morgan");
-const { errorHandler } = require("./middlewares/errorHandler.js");
-const { router } = require("./components/indexRoutes.js");
-const app = express();
+const express = require('express')
+require('./database.js')
+const cors = require('cors')
+const morgan = require('morgan')
+const { errorHandler } = require('./middlewares/errorHandler.js')
+const { router } = require('./components/indexRoutes.js')
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(morgan("dev"));
+const app = express()
 
-app.use("/api", router);
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(morgan('dev'))
 
-app.use(errorHandler);
+app.use('/api', router)
 
-module.exports = { app };
+app.use(errorHandler)
+
+module.exports = app
