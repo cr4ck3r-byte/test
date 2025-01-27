@@ -61,6 +61,18 @@ const deleteReservaService = async id => {
 	}
 }
 
+/**
+ * Valida los datos de la reserva.
+ *
+ * @param {number|null} id - El ID de la reserva (opcional).
+ * @param {Object} data - Los datos de la reserva a validar.
+ * @param {string} data.fecha_entrada - La fecha de entrada.
+ * @param {string} data.fecha_salida - La fecha de salida.
+ * @param {number} data.habitacion_id - El ID de la habitación.
+ * @throws {HttpError} Si la fecha de entrada es anterior a la fecha actual.
+ * @throws {HttpError} Si la fecha de salida es anterior a la fecha de entrada.
+ * @throws {HttpError} Si la habitación no está disponible para las fechas dadas.
+ */
 async function validateReservaData(id = null, data) {
 	if (data?.fecha_entrada !== undefined) {
 		if (dayjs(data.fecha_entrada).toDate().getTime() < Date.now()) {

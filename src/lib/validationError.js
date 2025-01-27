@@ -1,6 +1,10 @@
 /**
- * Represents a custom error class for validation errors.
- * @param {string} message - The error message.
+ * Clase de error personalizada para errores de validación.
+ *
+ * @class ValidationError
+ * @extends {Error}
+ *
+ * @param {string} message - El mensaje de error.
  */
 class ValidationError extends Error {
 	constructor(message) {

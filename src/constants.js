@@ -1,3 +1,4 @@
 const MONTO_DIA = 120000
+const DEFAULT_COUNTRY_CODE = 'PY'
 
-module.exports = { MONTO_DIA }
+module.exports = { MONTO_DIA, DEFAULT_COUNTRY_CODE }

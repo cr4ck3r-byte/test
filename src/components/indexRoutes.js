@@ -5,6 +5,7 @@ const path = require('path')
 const PATH_ROUTER = __dirname
 const router = Router()
 
+//Rutas basadas en archivos
 readdirSync(PATH_ROUTER).forEach(dirName => {
 	const dirNameHasDot = dirName.includes('.')
 	const isCurrentFile = dirName === path.basename(__filename)

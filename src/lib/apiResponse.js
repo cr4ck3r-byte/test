@@ -1,12 +1,14 @@
+/**
+ * Clase que representa una respuesta de API.
+ */
 class ApiResponse {
 	/**
-	 * Sends a successful response with the given data, message, and status code.
-	 *
-	 * @param {Response} res - The response object to send the success status and data.
-	 * @param {T} data - The data to be included in the response.
-	 * @param {string} message - The message to be included in the response.
-	 * @param {number} statusCode - The status code to be included in the response. Defaults to 200.
-	 * @return {Promise<Response>} A Promise that resolves to the response object with the success status and data.
+	 * Enviar una respuesta de éxito.
+	 * @param {Object} res - El objeto de respuesta.
+	 * @param {Object} data - Los datos a enviar.
+	 * @param {string} message - El mensaje a enviar.
+	 * @param {number} [statusCode=200] - El código de estado HTTP.
+	 * @returns {Object} - La respuesta JSON.
 	 */
 	static success(res, data, message, statusCode = 200) {
 		return res.status(statusCode).json({
@@ -15,15 +17,14 @@ class ApiResponse {
 			message,
 		})
 	}
-	/**
-	 * Sends an error response with the given message and status code.
-	 *
-	 * @param {Response} res - The response object to send the error status and message.
-	 * @param {string} message - The error message to be included in the response.
-	 * @param {number} statusCode - The status code to be included in the response. Defaults to 400.
-	 * @return {Object} The error response object.
-	 */
 
+	/**
+	 * Enviar una respuesta de error.
+	 * @param {Object} res - El objeto de respuesta.
+	 * @param {string} message - El mensaje de error.
+	 * @param {number} [statusCode=400] - El código de estado HTTP.
+	 * @returns {Object} - La respuesta JSON.
+	 */
 	static error(res, message, statusCode = 400) {
 		return res.status(statusCode).json({
 			resultado: false,
